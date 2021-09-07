@@ -1,11 +1,12 @@
 import sqlite3
+import re
 
 
 class Modelo:
     def conexion(self):
         conectar = sqlite3.connect("agenda.db")
         cursor = conectar.cursor()
-        
+
         try:    
             cursor.execute(
                 """CREATE TABLE IF NOT EXISTS datos (Id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre TEXT, Apellido TEXT, Telefono TEXT, Correo TEXT)"""
@@ -26,15 +27,17 @@ class Modelo:
         conectar = sqlite3.connect("agenda.db")
         cursor = conectar.cursor()
 
-        Id = None
-        Nombre = input("Nombre: ")
-        Apellido = input("Apellido: ")
-        Telefono = input("Telefono: ")
-        Correo = input("Correo: ")
+        id = None
+        nombre = input("Nombre: ")
+        apellido = input("Apellido: ")
+        telefono = input("Telefono: ")
+        correo = input("Correo: ")
+
+        patron = "^[A-Za-z]+(?:[ _-][A-Za-z]+)*$"
 
         cursor.execute(
             "INSERT INTO datos (Nombre, Apellido, Telefono, Correo) VALUES ('%s','%s','%s','%s')"
-            % (Nombre, Apellido, Telefono, Correo)
+            % (nombre, apellido, telefono, correo)
         )
 
         conectar.commit()
