@@ -9,7 +9,7 @@ class Modelo:
 
         try:    
             cursor.execute(
-                """CREATE TABLE IF NOT EXISTS datos (Id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre TEXT, Apellido TEXT, Telefono TEXT, Correo TEXT)"""
+                """CREATE TABLE IF NOT EXISTS datos (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Nombre TEXT NOT NULL, Apellido TEXT NOT NULL, Telefono TEXT NOT NULL, Correo TEXT NOT NULL)"""
             )
         except:
             raise Exception("La tabla ya existe o no se a podido crear ")
@@ -35,16 +35,20 @@ class Modelo:
 
         patron = re.compile("\w+\W*")
 
-        cursor.execute(
-            "INSERT INTO datos (Nombre, Apellido, Telefono, Correo) VALUES ('%s','%s','%s','%s')"
-            % (nombre, apellido, telefono, correo)
-        )
+        try:
+            cursor.execute(
+                "INSERT INTO datos (Nombre, Apellido, Telefono, Correo) VALUES ('%s','%s','%s','%s')"
+                % (nombre, apellido, telefono, correo)
+            )
 
-        conectar.commit()
-        cursor.close()
+            conectar.commit()
+            cursor.close()
 
-        print("")
-        input("Los datos fueron agregados correctamente ")
+            print("")
+            input("Los datos fueron agregados correctamente ")
+        except:
+            print("")
+            input("No se han podido agregar los datos ")
 
     def ver(self):
 
