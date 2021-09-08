@@ -33,7 +33,7 @@ class Modelo:
         telefono = input("Telefono: ")
         correo = input("Correo: ")
 
-        patron = "^[A-Za-z]+(?:[ _-][A-Za-z]+)*$"
+        patron = re.compile("\w+\W*")
 
         cursor.execute(
             "INSERT INTO datos (Nombre, Apellido, Telefono, Correo) VALUES ('%s','%s','%s','%s')"
