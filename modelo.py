@@ -12,7 +12,7 @@ class Modelo:
                 """CREATE TABLE IF NOT EXISTS datos (Id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre TEXT, Apellido TEXT, Telefono TEXT, Correo TEXT)"""
             )
         except:
-            print("La tabla ya existe ")
+            raise Exception("La tabla ya existe o no se a podido crear ")
 
         cursor.close()
 
