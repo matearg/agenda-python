@@ -1,8 +1,11 @@
+# ------------------------- Imports ------------------------- #
 import sqlite3
 import re
 
-
+# --------------------- Creo las clases --------------------- #
 class Modelo:
+
+# ----------------- Creo la conexion a la DB ---------------- #
     def conexion(self):
         conectar = sqlite3.connect("agenda.db")
         cursor = conectar.cursor()
@@ -16,6 +19,7 @@ class Modelo:
 
         cursor.close()
 
+# ---------------------- Alta de datos ---------------------- #
     def agregar(self):
 
         "Agrega un nuevo contacto a la Agenda"
@@ -50,6 +54,7 @@ class Modelo:
             print("")
             input("No se han podido agregar los datos ")
 
+# -------------------- Consulta de datos -------------------- #
     def ver(self):
 
         "Devuelve todos los contactos de la agenda"
@@ -72,6 +77,7 @@ class Modelo:
         print("")
         input("Presione una tecla para continuar ")
 
+# -------------- Consulta de datos especificos -------------- #
     def buscar(self):
 
         "Busca un contacto en la agenda y lo lista"
@@ -103,6 +109,7 @@ class Modelo:
         print("")
         input("Presione una tecla para continuar ")
 
+# ---------------------- Baja de datos ---------------------- #
     def eliminar(self):
 
         "Elimina un contacto de la Agenda"
@@ -125,6 +132,7 @@ class Modelo:
         print("")
         input("Contacto eliminado correctamente ")
 
+# ------------------ Modificacion de datos ------------------ #
     def modificar(self):
 
         "Modifica un contacto de la Agenda y lo lista"

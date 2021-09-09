@@ -1,10 +1,13 @@
+# ------------------------- Imports ------------------------- #
 import os
 import time
 
 import modelo
 
-
+# --------------------- Creo las clases --------------------- #
 class Vista:
+
+# ---------------------- Creo el menu ----------------------- #
     def main(self):
 
         cModelo = modelo.Modelo()
