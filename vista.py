@@ -13,7 +13,7 @@ class Vista:
         cModelo = modelo.Modelo()
         cModelo.conexion()
 
-        print("Agenda")
+        print("Agenda [^][^]")
         print("------------------")
         print(
             """
