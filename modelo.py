@@ -43,7 +43,9 @@ class Modelo:
 
         try:
             if (
-                re.match(re_nombres, nombre)
+                id is not None
+                and re.match(re_numeros, id)
+                and re.match(re_nombres, nombre)
                 and re.match(re_nombres, apellido)
                 and re.match(re_mail, correo)
                 and re.match(re_numeros, telefono)
@@ -57,11 +59,19 @@ class Modelo:
                 conectar.commit()
                 cursor.close()
 
-            print("")
-            input("Los datos fueron agregados correctamente ")
+                print("")
+                input("Los datos fueron agregados correctamente ")
+
+            else:
+                print("")
+                input("No se han podido agregar los datos ")
+
         except:
             print("")
             input("No se han podido agregar los datos ")
+
+        finally:
+            print("Contacto agregado correctamente")
 
     # -------------------- Consulta de datos -------------------- #
     def ver(self):
