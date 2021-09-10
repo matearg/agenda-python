@@ -5,6 +5,10 @@ import re
 # --------------------- Creo las clases --------------------- #
 class Modelo:
 
+    re_numeros = r"[0-9]"
+    re_nombres = r"[A-Za-z]"
+    re_mail = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}\b"
+
     # ----------------- Creo la conexion a la DB ---------------- #
     def conexion(self):
         conectar = sqlite3.connect("agenda.db")
@@ -37,18 +41,12 @@ class Modelo:
         telefono = input("Telefono: ")
         correo = input("Correo: ")
 
-        re_numeros = r"[0-9]"
-        re_nombres = r"[A-Za-z]"
-        re_mail = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}\b"
-
         try:
             if (
-                id is not None
-                and re.match(re_numeros, id)
-                and re.match(re_nombres, nombre)
-                and re.match(re_nombres, apellido)
-                and re.match(re_mail, correo)
-                and re.match(re_numeros, telefono)
+                re.match(self.re_nombres, nombre)
+                and re.match(self.re_nombres, apellido)
+                and re.match(self.re_mail, correo)
+                and re.match(self.re_numeros, telefono)
             ):
 
                 cursor.execute(
@@ -60,18 +58,19 @@ class Modelo:
                 cursor.close()
 
                 print("")
-                input("Los datos fueron agregados correctamente ")
+                print("Los datos fueron agregados correctamente")
 
             else:
                 print("")
-                input("No se han podido agregar los datos ")
+                print("Datos ingresados invalidos")
 
         except:
             print("")
-            input("No se han podido agregar los datos ")
+            print("No se han podido agregar los datos")
 
         finally:
-            print("Contacto agregado correctamente")
+            print("")
+            input("Presione una tecla para continuar ")
 
     # -------------------- Consulta de datos -------------------- #
     def ver(self):
@@ -110,23 +109,35 @@ class Modelo:
 
         buscar = input("Id de contacto a buscar: ")
 
-        cursor.execute("SELECT * FROM datos WHERE Id = '%s'" % (buscar))
+        try:
+            if re.match(self.re_numeros, buscar):
 
-        x = cursor.fetchall()
+                cursor.execute("SELECT * FROM datos WHERE Id = '%s'" % (buscar))
 
-        print("")
+                x = cursor.fetchall()
 
-        for i in x:
-            print("Id:", i[0])
-            print("Nombre:", i[1])
-            print("Apellido:", i[2])
-            print("Telefono:", i[3])
-            print("Correo:", i[4])
+                print("")
 
-        cursor.close()
+                for i in x:
+                    print("Id:", i[0])
+                    print("Nombre:", i[1])
+                    print("Apellido:", i[2])
+                    print("Telefono:", i[3])
+                    print("Correo:", i[4])
 
-        print("")
-        input("Presione una tecla para continuar ")
+                cursor.close()
+
+            else:
+                print("")
+                print("El id ingresado no es correcto")
+
+        except:
+            print("")
+            print("Ha ocurrido un error en la busqueda")
+
+        finally:
+            print("")
+            input("Presione una tecla para continuar ")
 
     # ---------------------- Baja de datos ---------------------- #
     def eliminar(self):
@@ -142,46 +153,82 @@ class Modelo:
 
         eliminar = input("Id de contacto a eliminar: ")
 
-        cursor.execute("DELETE FROM datos WHERE Id = '%s'" % (eliminar))
+        try:
+            if re.match(self.re_numeros, eliminar):
 
-        conectar.commit()
+                cursor.execute("DELETE FROM datos WHERE Id = '%s'" % (eliminar))
 
-        cursor.close()
+                conectar.commit()
 
-        print("")
-        input("Contacto eliminado correctamente ")
+                cursor.close()
+                print("")
+                print("Datos eliminados correctamente")
+
+            else:
+                print("")
+                print("El id ingresado no es correcto")
+
+        except:
+            print("")
+            print("Ha ocurrido un error en la eliminacion")
+
+        finally:
+            print("")
+            input("Presione una tecla para continuar ")
 
     # ------------------ Modificacion de datos ------------------ #
     def modificar(self):
 
         "" "Modifica un contacto de la Agenda y lo lista" ""
 
+        print("Modificar contacto")
+        print("----------------")
+        print("")
+
         conectar = sqlite3.connect("agenda.db")
         cursor = conectar.cursor()
 
-        print("")
-        Id = input("Id de contacto a modificar: ")
-        print("")
-
-        Nombre = input("Nombre: ")
-        Apellido = input("Apellido: ")
-        Telefono = input("Telefono: ")
-        Correo = input("Correo: ")
-
-        sql = """UPDATE datos SET Nombre = ?, Apellido = ?, Telefono = ?, Correo = ? WHERE Id = ?;"""
-        datos = (Nombre, Apellido, Telefono, Correo, Id)
-        cursor.execute(sql, datos)
-
-        print("")
-        print("Luego de modificar: ")
+        id = input("Id de contacto a modificar: ")
         print("")
 
-        data = cursor.execute("""SELECT * FROM datos""")
-        for row in data:
-            print(row)
-        conectar.commit()
+        nombre = input("Nombre: ")
+        apellido = input("Apellido: ")
+        telefono = input("Telefono: ")
+        correo = input("Correo: ")
 
-        cursor.close()
+        try:
+            if (
+                re.match(self.re_nombres, nombre)
+                and re.match(self.re_nombres, apellido)
+                and re.match(self.re_mail, correo)
+                and re.match(self.re_numeros, telefono)
+            ):
+                sql = """UPDATE datos SET Nombre = ?, Apellido = ?, Telefono = ?, Correo = ? WHERE Id = ?;"""
+                datos = (nombre, apellido, telefono, correo, id)
+                cursor.execute(sql, datos)
 
-        print("")
-        input("Contacto modificado correctamente ")
+                print("")
+                print("Luego de modificar: ")
+                print("")
+
+                data = cursor.execute("""SELECT * FROM datos""")
+                for row in data:
+                    print(row)
+                conectar.commit()
+
+                cursor.close()
+
+                print("")
+                print("Contacto modificado correctamente")
+
+            else:
+                print("")
+                print("Datos ingresados invalidos")
+
+        except:
+            print("")
+            print("Ha ocurrido un error en la modificacion")
+
+        finally:
+            print("")
+            input("Presione una tecla para continuar ")
