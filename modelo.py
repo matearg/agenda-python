@@ -37,7 +37,9 @@ class Modelo:
         telefono = input("Telefono: ")
         correo = input("Correo: ")
 
-        patron = re.compile("\w+\W*")
+        re_numeros = r"[0-9]"
+        re_nombres = r"[A-Za-z]"
+        re_mail = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}\b"
 
         try:
             cursor.execute(
