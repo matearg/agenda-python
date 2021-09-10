@@ -7,7 +7,7 @@ import modelo
 # --------------------- Creo las clases --------------------- #
 class Vista:
 
-# ---------------------- Creo el menu ----------------------- #
+    # ---------------------- Creo el menu ----------------------- #
     def main(self):
 
         "" "Crea el menu que se mostrará en el prompt" ""
