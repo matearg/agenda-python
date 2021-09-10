@@ -22,7 +22,7 @@ class Modelo:
 # ---------------------- Alta de datos ---------------------- #
     def agregar(self):
 
-        "Agrega un nuevo contacto a la Agenda"
+        "" "Agrega un nuevo contacto a la Agenda" ""
 
         print("Agregar contacto")
         print("----------------")
@@ -57,7 +57,7 @@ class Modelo:
 # -------------------- Consulta de datos -------------------- #
     def ver(self):
 
-        "Devuelve todos los contactos de la agenda"
+        "" "Devuelve todos los contactos de la agenda" ""
 
         print("Lista de contactos")
         print("------------------")
@@ -80,7 +80,7 @@ class Modelo:
 # -------------- Consulta de datos especificos -------------- #
     def buscar(self):
 
-        "Busca un contacto en la agenda y lo lista"
+        "" "Busca un contacto en la agenda y lo lista" ""
 
         print("Buscar contacto")
         print("---------------")
@@ -112,7 +112,7 @@ class Modelo:
 # ---------------------- Baja de datos ---------------------- #
     def eliminar(self):
 
-        "Elimina un contacto de la Agenda"
+        "" "Elimina un contacto de la Agenda" ""
 
         print("Eliminar contacto")
         print("---------------")
@@ -135,7 +135,7 @@ class Modelo:
 # ------------------ Modificacion de datos ------------------ #
     def modificar(self):
 
-        "Modifica un contacto de la Agenda y lo lista"
+        "" "Modifica un contacto de la Agenda y lo lista" ""
 
         conectar = sqlite3.connect("agenda.db")
         cursor = conectar.cursor()

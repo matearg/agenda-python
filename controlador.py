@@ -3,6 +3,7 @@
 # Profesor: MBA ING. Juan Barreto #
 # Año: 2021 #
 
+"" "Lanza la aplicacion" ""
 
 # ------------------------- Imports ------------------------- #
 import vista

@@ -10,6 +10,8 @@ class Vista:
 # ---------------------- Creo el menu ----------------------- #
     def main(self):
 
+        "" "Crea el menu que se mostrará en el prompt" ""
+
         cModelo = modelo.Modelo()
         cModelo.conexion()
 
