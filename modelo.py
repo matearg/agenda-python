@@ -42,13 +42,20 @@ class Modelo:
         re_mail = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}\b"
 
         try:
-            cursor.execute(
-                "INSERT INTO datos (Nombre, Apellido, Telefono, Correo) VALUES ('%s','%s','%s','%s')"
-                % (nombre, apellido, telefono, correo)
-            )
+            if (
+                re.match(re_nombres, nombre)
+                and re.match(re_nombres, apellido)
+                and re.match(re_mail, correo)
+                and re.match(re_numeros, telefono)
+            ):
 
-            conectar.commit()
-            cursor.close()
+                cursor.execute(
+                    "INSERT INTO datos (Nombre, Apellido, Telefono, Correo) VALUES ('%s','%s','%s','%s')"
+                    % (nombre, apellido, telefono, correo)
+                )
+
+                conectar.commit()
+                cursor.close()
 
             print("")
             input("Los datos fueron agregados correctamente ")
