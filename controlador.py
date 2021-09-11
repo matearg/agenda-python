@@ -10,8 +10,10 @@ import vista
 
 # --------------------- Creo las clases --------------------- #
 class Controlador:
-    fMain = vista.Vista()
-    fMain.main()
+    def __init__(self):
+        fMain = vista.Vista()
+        fMain.main()
 
 
-Controlador()
+if __name__ == "__main__":
+    Controlador()
