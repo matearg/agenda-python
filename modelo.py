@@ -18,8 +18,8 @@ class Modelo:
             cursor.execute(
                 """CREATE TABLE IF NOT EXISTS datos (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Nombre TEXT NOT NULL, Apellido TEXT NOT NULL, Telefono TEXT NOT NULL, Correo TEXT NOT NULL)"""
             )
-        except:
-            raise Exception("La tabla ya existe o no se a podido crear ")
+        except Exception:
+            raise ("La tabla ya existe o no se a podido crear ")
 
         cursor.close()
 
@@ -64,7 +64,7 @@ class Modelo:
                 print("")
                 print("Datos ingresados invalidos")
 
-        except:
+        except Exception:
             print("")
             print("No se han podido agregar los datos")
 
@@ -131,7 +131,7 @@ class Modelo:
                 print("")
                 print("El id ingresado no es correcto")
 
-        except:
+        except Exception:
             print("")
             print("Ha ocurrido un error en la busqueda")
 
@@ -168,7 +168,7 @@ class Modelo:
                 print("")
                 print("El id ingresado no es correcto")
 
-        except:
+        except Exception:
             print("")
             print("Ha ocurrido un error en la eliminacion")
 
@@ -225,7 +225,7 @@ class Modelo:
                 print("")
                 print("Datos ingresados invalidos")
 
-        except:
+        except Exception:
             print("")
             print("Ha ocurrido un error en la modificacion")
 
