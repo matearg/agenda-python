@@ -36,7 +36,6 @@ class Modelo:
         conectar = sqlite3.connect("agenda.db")
         cursor = conectar.cursor()
 
-        id = None
         nombre = input("Nombre: ")
         apellido = input("Apellido: ")
         telefono = input("Telefono: ")
@@ -51,7 +50,7 @@ class Modelo:
             ):
 
                 cursor.execute(
-                    "INSERT INTO datos (Nombre, Apellido, Telefono, Correo) VALUES ('%s','%s','%s','%s')"
+                    """INSERT INTO datos (Nombre, Apellido, Telefono, Correo) VALUES ('%s','%s','%s','%s')"""
                     % (nombre, apellido, telefono, correo)
                 )
 
