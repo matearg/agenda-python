@@ -9,6 +9,8 @@
 import vista
 
 # --------------------- Creo las clases --------------------- #
+
+
 class Controlador:
     def __init__(self):
         fMain = vista.Vista()

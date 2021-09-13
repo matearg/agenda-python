@@ -3,6 +3,8 @@ import sqlite3
 import re
 
 # --------------------- Creo las clases --------------------- #
+
+
 class Modelo:
 
     re_numeros = r"[0-9]"
@@ -25,7 +27,6 @@ class Modelo:
 
     # ---------------------- Alta de datos ---------------------- #
     def agregar(self):
-
         "" "Agrega un nuevo contacto a la Agenda" ""
 
         print("Agregar contacto")
@@ -74,7 +75,6 @@ class Modelo:
 
     # -------------------- Consulta de datos -------------------- #
     def ver(self):
-
         "" "Devuelve todos los contactos de la agenda" ""
 
         print("Lista de contactos")
@@ -97,7 +97,6 @@ class Modelo:
 
     # -------------- Consulta de datos especificos -------------- #
     def buscar(self):
-
         "" "Busca un contacto en la agenda y lo lista" ""
 
         print("Buscar contacto")
@@ -112,7 +111,8 @@ class Modelo:
         try:
             if re.match(self.re_numeros, buscar):
 
-                cursor.execute("SELECT * FROM datos WHERE Id = '%s'" % (buscar))
+                cursor.execute(
+                    "SELECT * FROM datos WHERE Id = '%s'" % (buscar))
 
                 x = cursor.fetchall()
 
@@ -141,7 +141,6 @@ class Modelo:
 
     # ---------------------- Baja de datos ---------------------- #
     def eliminar(self):
-
         "" "Elimina un contacto de la Agenda" ""
 
         print("Eliminar contacto")
@@ -156,7 +155,8 @@ class Modelo:
         try:
             if re.match(self.re_numeros, eliminar):
 
-                cursor.execute("DELETE FROM datos WHERE Id = '%s'" % (eliminar))
+                cursor.execute(
+                    "DELETE FROM datos WHERE Id = '%s'" % (eliminar))
 
                 conectar.commit()
 
@@ -178,7 +178,6 @@ class Modelo:
 
     # ------------------ Modificacion de datos ------------------ #
     def modificar(self):
-
         "" "Modifica un contacto de la Agenda y lo lista" ""
 
         print("Modificar contacto")
