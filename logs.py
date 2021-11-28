@@ -6,7 +6,7 @@ import datetime
 def log(func):
     def wrapper(*args, **kwargs):
         with open("logs.txt", "a") as f:
-            f.write("Se inicio la agenda " + " el " + str(datetime.datetime.now()) + "\n")
+            f.write("Se inicio la agenda " + "el " + str(datetime.datetime.now()) + "\n")
         val = func(*args, **kwargs)
         return val
 
