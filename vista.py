@@ -13,8 +13,8 @@ class Vista:
     def main(self):
         "" "Crea el menu que se mostrará en el prompt" ""
 
-        cModelo = modelo.Modelo()
-        cModelo.conexion()
+        c_modelo = modelo.Modelo()
+        c_modelo.conexion()
 
         print("Agenda [^][^]")
         print("------------------")
@@ -33,36 +33,36 @@ class Vista:
 
         if opcion == "1":
             os.system("cls")
-            aModelo = modelo.Modelo()
-            aModelo.agregar()
+            a_modelo = modelo.Modelo()
+            a_modelo.agregar()
             os.system("cls")
             self.main()
 
         elif opcion == "2":
             os.system("cls")
-            vModelo = modelo.Modelo()
-            vModelo.ver()
+            v_modelo = modelo.Modelo()
+            v_modelo.ver()
             os.system("cls")
             self.main()
 
         elif opcion == "3":
             os.system("cls")
-            bModelo = modelo.Modelo()
-            bModelo.buscar()
+            b_modelo = modelo.Modelo()
+            b_modelo.buscar()
             os.system("cls")
             self.main()
 
         elif opcion == "4":
             os.system("cls")
-            eModelo = modelo.Modelo()
-            eModelo.eliminar()
+            e_modelo = modelo.Modelo()
+            e_modelo.eliminar()
             os.system("cls")
             self.main()
 
         elif opcion == "5":
             os.system("cls")
-            mModelo = modelo.Modelo()
-            mModelo.modificar()
+            m_modelo = modelo.Modelo()
+            m_modelo.modificar()
             os.system("cls")
             self.main()
 

@@ -13,8 +13,8 @@ import vista
 
 class Controlador:
     def __init__(self):
-        fMain = vista.Vista()
-        fMain.main()
+        f_main = vista.Vista()
+        f_main.main()
 
 
 if __name__ == "__main__":
