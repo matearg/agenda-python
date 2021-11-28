@@ -18,10 +18,11 @@ class Modelo:
 
         try:
             cursor.execute(
-                """CREATE TABLE IF NOT EXISTS datos (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Nombre TEXT NOT NULL, Apellido TEXT NOT NULL, Telefono TEXT NOT NULL, Correo TEXT NOT NULL)"""
+                """CREATE TABLE IF NOT EXISTS datos (Id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, Nombre TEXT NOT 
+                NULL, Apellido TEXT NOT NULL, Telefono TEXT NOT NULL, Correo TEXT NOT NULL) """
             )
         except Exception:
-            raise ("La tabla ya existe o no se a podido crear ")
+            raise "La tabla ya existe o no se a podido crear "
 
         cursor.close()
 
@@ -111,7 +112,7 @@ class Modelo:
             if re.match(self.re_numeros, buscar):
 
                 cursor.execute(
-                    "SELECT * FROM datos WHERE Id = '%s'" % (buscar))
+                    "SELECT * FROM datos WHERE Id = '%s'" % buscar)
 
                 x = cursor.fetchall()
 
@@ -155,7 +156,7 @@ class Modelo:
             if re.match(self.re_numeros, eliminar):
 
                 cursor.execute(
-                    "DELETE FROM datos WHERE Id = '%s'" % (eliminar))
+                    "DELETE FROM datos WHERE Id = '%s'" % eliminar)
 
                 conectar.commit()
 
