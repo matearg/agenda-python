@@ -9,7 +9,6 @@
 import decorador
 import vista
 
-
 # --------------------- Creo las clases --------------------- #
 
 @decorador.log_decorador

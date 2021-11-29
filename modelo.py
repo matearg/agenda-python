@@ -1,6 +1,7 @@
 # ------------------------- Imports ------------------------- #
-import sqlite3
 import re
+import sqlite3
+
 import decorador
 
 # --------------------- Creo las clases --------------------- #
