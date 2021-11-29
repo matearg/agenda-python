@@ -15,7 +15,7 @@ def log_decorador(func):
 def alta_decorador(func):
     def wrapper(*args, **kwargs):
         with open("logs.txt", "a") as f:
-            f.write("Se inicio la agenda " + "el " + str(datetime.datetime.now()) + "\n")
+            f.write("Se agrego un contacto " + "el " + str(datetime.datetime.now()) + "\n")
         val = func(*args, **kwargs)
         return val
 
