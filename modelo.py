@@ -1,6 +1,7 @@
 # ------------------------- Imports ------------------------- #
 import sqlite3
 import re
+import decorador
 
 # --------------------- Creo las clases --------------------- #
 
@@ -27,6 +28,7 @@ class Modelo:
         cursor.close()
 
     # ---------------------- Alta de datos ---------------------- #
+    @decorador.alta_decorador
     def agregar(self):
         "" "Agrega un nuevo contacto a la Agenda" ""
 
@@ -140,6 +142,7 @@ class Modelo:
             input("Presione una tecla para continuar ")
 
     # ---------------------- Baja de datos ---------------------- #
+    @decorador.baja_decorador
     def eliminar(self):
         "" "Elimina un contacto de la Agenda" ""
 
@@ -177,6 +180,7 @@ class Modelo:
             input("Presione una tecla para continuar ")
 
     # ------------------ Modificacion de datos ------------------ #
+    @decorador.modificar_decorador
     def modificar(self):
         "" "Modifica un contacto de la Agenda y lo lista" ""
 

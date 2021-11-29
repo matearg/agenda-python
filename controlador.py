@@ -6,13 +6,13 @@
 "" "Lanza la aplicacion" ""
 
 # ------------------------- Imports ------------------------- #
-import logs
+import decorador
 import vista
 
 
 # --------------------- Creo las clases --------------------- #
 
-@logs.log
+@decorador.log_decorador
 class Controlador:
     def __init__(self):
         f_main = vista.Vista()
