@@ -192,7 +192,7 @@ class Modelo:
         conectar = sqlite3.connect("agenda.db")
         cursor = conectar.cursor()
 
-        id = input("Id de contacto a modificar: ")
+        identificador = input("Id de contacto a modificar: ")
         print("")
 
         nombre = input("Nombre: ")
@@ -208,7 +208,7 @@ class Modelo:
                 and re.match(self.re_numeros, telefono)
             ):
                 sql = """UPDATE datos SET Nombre = ?, Apellido = ?, Telefono = ?, Correo = ? WHERE Id = ?;"""
-                datos = (nombre, apellido, telefono, correo, id)
+                datos = (nombre, apellido, telefono, correo, identificador)
                 cursor.execute(sql, datos)
 
                 print("")
