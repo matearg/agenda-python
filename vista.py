@@ -16,7 +16,7 @@ class Vista:
         c_modelo = modelo.Modelo()
         c_modelo.conexion()
 
-        print("Agenda [^][^]")
+        print("Agenda")
         print("------------------")
         print(
             """
