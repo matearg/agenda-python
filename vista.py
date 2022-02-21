@@ -70,7 +70,7 @@ class Vista:
             print("")
             print("¿Realmente desea Salir? (Y/N): ")
             print("")
-            respuesta = input()
+            respuesta = input("-> ")
             if respuesta.lower() == "y":
                 print("")
                 print("Adios!")
