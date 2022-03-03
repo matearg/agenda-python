@@ -5,7 +5,7 @@ import datetime
 # ------------------ Defino la funcion log ------------------ #
 def log_decorador(func):
     def wrapper(*args, **kwargs):
-        with open("logs.txt", "a") as f:
+        with open("logs.log", "a") as f:
             f.write("Se inicio la agenda " + "el " +
                     str(datetime.datetime.now()) + "\n")
         val = func(*args, **kwargs)
@@ -16,7 +16,7 @@ def log_decorador(func):
 
 def alta_decorador(func):
     def wrapper(*args, **kwargs):
-        with open("logs.txt", "a") as f:
+        with open("logs.log", "a") as f:
             f.write("Se agrego un contacto " + "el " +
                     str(datetime.datetime.now()) + "\n")
         val = func(*args, **kwargs)
@@ -27,7 +27,7 @@ def alta_decorador(func):
 
 def baja_decorador(func):
     def wrapper(*args, **kwargs):
-        with open("logs.txt", "a") as f:
+        with open("logs.log", "a") as f:
             f.write("Se elimino un contacto " + "el " +
                     str(datetime.datetime.now()) + "\n")
         val = func(*args, **kwargs)
@@ -38,7 +38,7 @@ def baja_decorador(func):
 
 def modificar_decorador(func):
     def wrapper(*args, **kwargs):
-        with open("logs.txt", "a") as f:
+        with open("logs.log", "a") as f:
             f.write("Se modifico un contacto " + "el " +
                     str(datetime.datetime.now()) + "\n")
         val = func(*args, **kwargs)
