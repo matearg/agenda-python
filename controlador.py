@@ -1,7 +1,7 @@
-# Alumno: Mateo Arcidiacono #
-# Curso: 999185859 #
-# Profesor: MBA ING. Juan Barreto #
-# Año: 2021 #
+# Alumno: Mateo Arcidiacono
+# Curso: 999185859
+# Profesor: MBA ING. Juan Barreto
+# Año: 2021
 
 "" "Lanza la aplicacion" ""
 
