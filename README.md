@@ -1,4 +1,3 @@
-# agenda-python
+# python-examples
 
-Agenda simple basada en sistema CRUD, hecha con python3 y sqlite3.
-El gui es mostrado por consola.
+Those are some python examples that I will be creating just for fun
