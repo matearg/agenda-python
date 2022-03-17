@@ -1,7 +1,6 @@
 # Importing the respective modules
 import os
 import time
-import datetime
 
 # Create an app that lets the user input two numbers and let him choose the operation to perform on them using a menu.
 # The input would be taken in the console and the result would be shown in the console.
