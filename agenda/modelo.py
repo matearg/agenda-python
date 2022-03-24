@@ -24,7 +24,8 @@ class Modelo:
                 NULL, Apellido TEXT NOT NULL, Telefono TEXT NOT NULL, Correo TEXT NOT NULL) """
             )
         except Exception:
-            raise "La tabla ya existe o no se a podido crear "
+            print("")
+            print("Ha ocurrido un error en la conexion")
 
         cursor.close()
 
