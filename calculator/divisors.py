@@ -1,5 +1,5 @@
 """Create a program that asks the user for a number and then prints out a list of all the divisors of that number."""
- 
+
 num = int(input("Enter a number: "))
 
 class Divisors:
@@ -12,6 +12,7 @@ class Divisors:
             if self.num % i == 0:
                 self.divisors.append(i)
     def print_divisors(self):
+        self.divisors.sort()
         print("The divisors of", self.num, "are", self.divisors)
 
 if __name__ == "__main__":
