@@ -2,6 +2,7 @@
 
 num = int(input("Enter a number: "))
 
+
 class Divisors:
     def __init__(self, num):
         self.num = num
@@ -11,9 +12,11 @@ class Divisors:
         for i in range(2, self.num):
             if self.num % i == 0:
                 self.divisors.append(i)
+
     def print_divisors(self):
         self.divisors.sort()
         print("The divisors of", self.num, "are", self.divisors)
+
 
 if __name__ == "__main__":
     divisors = Divisors(num)

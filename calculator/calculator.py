@@ -10,24 +10,38 @@ a = int(input("Introduce el primer numero: "))
 b = int(input("Introduce el segundo numero: "))
 
 # Defining a function that will show the numbers
+
+
 def numbers():
     print("Tus numeros son: " + str(a) + " y " + str(b), "\n")
 
 # Defining the operations
+
+
 def add(a, b):
     return a + b
+
+
 def subtract(a, b):
     return a - b
+
+
 def multiply(a, b):
     return a * b
+
+
 def divide(a, b):
     return a / b
 
 # Create a function that clears the powershell terminal.
+
+
 def clear():
     os.system('cls')
 
 # Creating a menu
+
+
 def menu():
     clear()
     print("Bienvenido a la calculadora!\n")
@@ -62,6 +76,7 @@ def menu():
         print("Opcion invalida")
         input("\nPresiona enter para continuar ")
         menu()
+
 
 # Calling the menu function
 if __name__ == "__main__":
