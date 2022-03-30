@@ -67,28 +67,21 @@ class Vista:
             self.main()
 
         elif opcion == "0":
-            print("")
-            print("¿Realmente desea Salir? (Y/N): ")
-            print("")
+            print("\n¿Realmente desea Salir? (Y/N): \n")
             respuesta = input("-> ")
             if respuesta.lower() == "y":
-                print("")
-                print("Adios!")
-                print("")
+                print("\nAdios!\n")
                 time.sleep(1)
                 exit()
             elif respuesta.lower() == "n":
-                print("")
                 os.system("cls")
                 self.main()
             else:
-                print("")
-                input("La opcion elegida es invalida ")
+                input("\nLa opcion elegida es invalida ")
                 os.system("cls")
                 self.main()
 
         else:
-            print("")
-            input("Opcion incorrecta ")
+            input("\nOpcion incorrecta ")
             os.system("cls")
             self.main()

@@ -24,8 +24,7 @@ class Modelo:
                 NULL, Apellido TEXT NOT NULL, Telefono TEXT NOT NULL, Correo TEXT NOT NULL) """
             )
         except:
-            print("")
-            print("Ha ocurrido un error en la conexion")
+            print("\nHa ocurrido un error en la conexion")
 
         cursor.close()
 
@@ -35,8 +34,7 @@ class Modelo:
         "" "Agrega un nuevo contacto a la Agenda" ""
 
         print("Agregar contacto")
-        print("----------------")
-        print("")
+        print("----------------\n")
 
         conectar = sqlite3.connect("agenda.db")
         cursor = conectar.cursor()
@@ -62,28 +60,23 @@ class Modelo:
                 conectar.commit()
                 cursor.close()
 
-                print("")
-                print("Los datos fueron agregados correctamente")
+                print("\nLos datos fueron agregados correctamente")
 
             else:
-                print("")
-                print("Datos ingresados invalidos")
+                print("\nDatos ingresados invalidos")
 
         except:
-            print("")
-            print("No se han podido agregar los datos")
+            print("\nNo se han podido agregar los datos")
 
         finally:
-            print("")
-            input("Presione una tecla para continuar ")
+            input("\nPresione una tecla para continuar ")
 
     # -------------------- Consulta de datos -------------------- #
     def ver(self):
         "" "Devuelve todos los contactos de la agenda" ""
 
         print("Lista de contactos")
-        print("------------------")
-        print("")
+        print("------------------\n")
 
         conectar = sqlite3.connect("agenda.db")
         cursor = conectar.cursor()
@@ -96,21 +89,19 @@ class Modelo:
 
         cursor.close()
 
-        print("")
-        input("Presione una tecla para continuar ")
+        input("\nPresione una tecla para continuar ")
 
     # -------------- Consulta de datos especificos -------------- #
     def buscar(self):
         "" "Busca un contacto en la agenda y lo lista" ""
 
         print("Buscar contacto")
-        print("---------------")
-        print("")
+        print("---------------\n")
 
         conectar = sqlite3.connect("agenda.db")
         cursor = conectar.cursor()
 
-        buscar = input("Id de contacto a buscar: ")
+        buscar = input("Id del contacto a buscar: ")
 
         try:
             if re.match(self.re_numeros, buscar):
@@ -120,10 +111,8 @@ class Modelo:
 
                 x = cursor.fetchall()
 
-                print("")
-
                 for i in x:
-                    print("Id:", i[0])
+                    print("\nId:", i[0])
                     print("Nombre:", i[1])
                     print("Apellido:", i[2])
                     print("Telefono:", i[3])
@@ -132,16 +121,13 @@ class Modelo:
                 cursor.close()
 
             else:
-                print("")
-                print("El id ingresado no es correcto")
+                print("\nEl id ingresado no es correcto")
 
         except:
-            print("")
-            print("Ha ocurrido un error en la busqueda")
+            print("\nHa ocurrido un error en la busqueda")
 
         finally:
-            print("")
-            input("Presione una tecla para continuar ")
+            input("\nPresione una tecla para continuar ")
 
     # ---------------------- Baja de datos ---------------------- #
     @decorador.baja_decorador
@@ -149,13 +135,12 @@ class Modelo:
         "" "Elimina un contacto de la Agenda" ""
 
         print("Eliminar contacto")
-        print("---------------")
-        print("")
+        print("---------------\n")
 
         conectar = sqlite3.connect("agenda.db")
         cursor = conectar.cursor()
 
-        eliminar = input("Id de contacto a eliminar: ")
+        eliminar = input("Id del contacto a eliminar: ")
 
         try:
             if re.match(self.re_numeros, eliminar):
@@ -166,20 +151,16 @@ class Modelo:
                 conectar.commit()
 
                 cursor.close()
-                print("")
-                print("Datos eliminados correctamente")
+                print("\nDatos eliminados correctamente")
 
             else:
-                print("")
-                print("El id ingresado no es correcto")
+                print("\nEl id ingresado no es correcto")
 
         except:
-            print("")
-            print("Ha ocurrido un error en la eliminacion")
+            print("\nHa ocurrido un error en la eliminacion")
 
         finally:
-            print("")
-            input("Presione una tecla para continuar ")
+            input("\nPresione una tecla para continuar ")
 
     # ------------------ Modificacion de datos ------------------ #
     @decorador.modificar_decorador
@@ -187,16 +168,14 @@ class Modelo:
         "" "Modifica un contacto de la Agenda y lo lista" ""
 
         print("Modificar contacto")
-        print("----------------")
-        print("")
+        print("----------------\n")
 
         conectar = sqlite3.connect("agenda.db")
         cursor = conectar.cursor()
 
-        identificador = input("Id de contacto a modificar: ")
-        print("")
+        identificador = input("Id del contacto a modificar: ")
 
-        nombre = input("Nombre: ")
+        nombre = input("\nNombre: ")
         apellido = input("Apellido: ")
         telefono = input("Telefono: ")
         correo = input("Correo: ")
@@ -212,9 +191,7 @@ class Modelo:
                 datos = (nombre, apellido, telefono, correo, identificador)
                 cursor.execute(sql, datos)
 
-                print("")
-                print("Luego de modificar: ")
-                print("")
+                print("\nLuego de modificar: \n")
 
                 data = cursor.execute("""SELECT * FROM datos""")
                 for row in data:
@@ -223,17 +200,13 @@ class Modelo:
 
                 cursor.close()
 
-                print("")
-                print("Contacto modificado correctamente")
+                print("\nContacto modificado correctamente")
 
             else:
-                print("")
-                print("Datos ingresados invalidos")
+                print("\nDatos ingresados invalidos")
 
         except:
-            print("")
-            print("Ha ocurrido un error en la modificacion")
+            print("\nHa ocurrido un error en la modificacion")
 
         finally:
-            print("")
-            input("Presione una tecla para continuar ")
+            input("\nPresione una tecla para continuar ")
