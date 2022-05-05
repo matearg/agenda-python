@@ -1,6 +1,11 @@
 """Create a program that asks the user for a number and then prints out a list of all the divisors of that number."""
 
-num = int(input("Enter a number: "))
+
+def main():
+    num = int(input("Enter a number: "))
+
+    divisors = Divisors(num)
+    divisors.print_divisors()
 
 
 class Divisors:
@@ -19,5 +24,4 @@ class Divisors:
 
 
 if __name__ == "__main__":
-    divisors = Divisors(num)
-    divisors.print_divisors()
+    main()
