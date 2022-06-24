@@ -1,5 +1,5 @@
 # ------------------------- Imports ------------------------- #
-import os
+from os import system
 import time
 
 import modelo
@@ -15,6 +15,8 @@ class Vista:
 
         c_modelo = modelo.Modelo()
         c_modelo.conexion()
+
+        system("cls")
 
         print("Agenda")
         print("------------------")
@@ -32,38 +34,28 @@ class Vista:
         opcion = input("Ingresa una opcion -> ")
 
         if opcion == "1":
-            os.system("cls")
             a_modelo = modelo.Modelo()
             a_modelo.agregar()
-            os.system("cls")
             self.main()
 
         elif opcion == "2":
-            os.system("cls")
             v_modelo = modelo.Modelo()
             v_modelo.ver()
-            os.system("cls")
             self.main()
 
         elif opcion == "3":
-            os.system("cls")
             b_modelo = modelo.Modelo()
             b_modelo.buscar()
-            os.system("cls")
             self.main()
 
         elif opcion == "4":
-            os.system("cls")
             e_modelo = modelo.Modelo()
             e_modelo.eliminar()
-            os.system("cls")
             self.main()
 
         elif opcion == "5":
-            os.system("cls")
             m_modelo = modelo.Modelo()
             m_modelo.modificar()
-            os.system("cls")
             self.main()
 
         elif opcion == "0":
@@ -72,16 +64,14 @@ class Vista:
             if respuesta.lower() == "y":
                 print("\nAdios!\n")
                 time.sleep(1)
+                system("cls")
                 exit()
             elif respuesta.lower() == "n":
-                os.system("cls")
                 self.main()
             else:
                 input("\nLa opcion elegida es invalida ")
-                os.system("cls")
                 self.main()
 
         else:
             input("\nOpcion incorrecta ")
-            os.system("cls")
             self.main()

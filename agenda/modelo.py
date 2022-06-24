@@ -1,6 +1,7 @@
 # ------------------------- Imports ------------------------- #
 import re
 import sqlite3
+from os import system
 
 import decorador
 
@@ -32,6 +33,8 @@ class Modelo:
     @decorador.alta_decorador
     def agregar(self):
         "" "Agrega un nuevo contacto a la Agenda" ""
+
+        system("cls")
 
         print("Agregar contacto")
         print("----------------\n")
@@ -75,6 +78,8 @@ class Modelo:
     def ver(self):
         "" "Devuelve todos los contactos de la agenda" ""
 
+        system("cls")
+
         print("Lista de contactos")
         print("------------------\n")
 
@@ -94,6 +99,8 @@ class Modelo:
     # -------------- Consulta de datos especificos -------------- #
     def buscar(self):
         "" "Busca un contacto en la agenda y lo lista" ""
+
+        system("cls")
 
         print("Buscar contacto")
         print("---------------\n")
@@ -134,6 +141,8 @@ class Modelo:
     def eliminar(self):
         "" "Elimina un contacto de la Agenda" ""
 
+        system("cls")
+
         print("Eliminar contacto")
         print("---------------\n")
 
@@ -166,6 +175,8 @@ class Modelo:
     @decorador.modificar_decorador
     def modificar(self):
         "" "Modifica un contacto de la Agenda y lo lista" ""
+
+        system("cls")
 
         print("Modificar contacto")
         print("----------------\n")
