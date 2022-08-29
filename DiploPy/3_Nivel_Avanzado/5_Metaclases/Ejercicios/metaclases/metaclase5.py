@@ -1,0 +1,5 @@
+Auto = type("Auto", (), {"color": "azul", "retornar_color": (lambda x: x.color)})
+objeto = Auto()
+print(type(objeto))
+print(type(Auto))
+print(type(Auto.__class__))

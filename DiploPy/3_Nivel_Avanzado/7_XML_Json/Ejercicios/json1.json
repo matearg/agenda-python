@@ -1,0 +1,17 @@
+{
+    "nombre": "Ana", 
+    "edad": 33, 
+    "estado_civil": true,
+    "esposo": "Pablo",
+    "hijos": ["Cecilia","Luis"], 
+    "autos": [
+        {
+            "modelo": "Ford", 
+            "color": "rojo"
+        }, 
+        {
+            "modelo": "Chevrolet", 
+            "color": "azul"
+        }
+    ]
+} 

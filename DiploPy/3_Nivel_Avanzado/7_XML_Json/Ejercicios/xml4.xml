@@ -1,0 +1,8 @@
+<mediolocomocion>
+    <vehiculo>
+        <auto marca="audi">Moto modificada por segunda vez</auto>     
+    </vehiculo>
+    <vehiculos_aereos>
+        <avion color="verde">Este es un avi&#243;n</avion>
+    </vehiculos_aereos>
+</mediolocomocion>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mediolocomocion>
+    <vehiculo>
+        <moto marca="bmw">Moto n&#250;mero 1</moto>
+        <auto marca="audi">Auto n&#250;mero 1</auto>
+        <moto marca="Yamaha">Moto n&#250;mero 1</moto>
+        <auto marca="Renault">Auto n&#250;mero 1</auto>        
+    </vehiculo>
+</mediolocomocion>

@@ -1,0 +1,5 @@
+@ECHO
+
+.py
+
+pause
