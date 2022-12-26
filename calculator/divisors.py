@@ -1,20 +1,27 @@
 """Create a program that asks the user for a number and then prints out a list of all the divisors of that number."""
-
+from time import sleep
+from os import system
 
 def main():
-    num = int(input("Enter a number: "))
-
-    divisors = Divisors(num)
-    divisors.print_divisors()
+    system("cls")
+    while True:
+        num = int(input("\nEnter a number (0 to exit): "))
+        if num != 0:
+            divisors = Divisors(num)
+            divisors.print_divisors()
+        else:
+            break
+    print(f"Bye!")
+    sleep(1)
+    system("cls")
 
 
 class Divisors:
     def __init__(self, num):
         self.num = num
         self.divisors = []
-        self.divisors.append(1)
         self.divisors.append(self.num)
-        for i in range(2, self.num):
+        for i in range(1, self.num):
             if self.num % i == 0:
                 self.divisors.append(i)
 
